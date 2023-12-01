@@ -58,7 +58,7 @@ const App: React.FC = () => {
 
       const tagsMatch =
         queryParams["tags"]
-          ? queryParams["tags"].split(',').some((tag: any) => post.tags.includes(tag))
+          ? queryParams["tags"].split(',').some((tag: string) => post.tags.includes(tag))
           : true;
       const titleMatch = queryParams["q"]
         ? post.title.toLowerCase().includes(queryParams["q"].toLowerCase()) ||
@@ -68,6 +68,7 @@ const App: React.FC = () => {
       return userIdMatch && minReactionsMatch && tagsMatch && titleMatch;
     });
     setFilteredPosts(newFilteredPosts);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [posts]);
 
   const handleSearch = (query: string) => {

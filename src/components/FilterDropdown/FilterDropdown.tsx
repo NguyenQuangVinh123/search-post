@@ -34,6 +34,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   };
   useEffect(() => {
     handleFilter();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTags, minReactions, userId]);
   const handleKeyBoard = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.code === "Enter") {
